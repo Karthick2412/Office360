@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"taskupdate/controllers"
 	"taskupdate/initializers"
 	"taskupdate/middleware"
@@ -65,5 +66,5 @@ func initialRouterr() {
 	auth.HandleFunc("/report/{StDate}/{EndDate}", controllers.Report).Methods("GET")
 	auth.HandleFunc("/validate", controllers.Validate).Methods("GET")
 	//r.Use(middleware.CommonMiddleware)192.168.109.189  192.168.29.221 185.27.134.11:21
-	log.Fatal(http.ListenAndServe("192.168.29.221:8080", handler2))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), handler2))
 }
