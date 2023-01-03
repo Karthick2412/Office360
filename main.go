@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"taskupdate/controllers"
 	"taskupdate/initializers"
 	"taskupdate/middleware"
@@ -29,7 +30,7 @@ func initialRouterr() {
 	rout := mux.NewRouter().StrictSlash(true)
 	rout.Use(middleware.CommonMiddleware)
 	//allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, Access-Control-Request-Headers, Access-Control-Request-Method, Connection, Host, Origin, User-Agent, Referer, Cache-Control, X-header"
-
+	port := os.Getenv("PORT")
 	// rout.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 	// 	w.Header().Set("Content-Type", "application/json")
 	// 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
@@ -64,6 +65,6 @@ func initialRouterr() {
 	auth.HandleFunc("/task", controllers.GetTasks).Methods("GET")
 	auth.HandleFunc("/report/{StDate}/{EndDate}", controllers.Report).Methods("GET")
 	auth.HandleFunc("/validate", controllers.Validate).Methods("GET")
-	//r.Use(middleware.CommonMiddleware)192.168.109.189  192.168.29.221 185.27.134.11:21
-	log.Fatal(http.ListenAndServe("0.0.0.0:3000", handler2))
+	//r.Use(middleware.CommonMiddleware)192.168.109.189  192.168.29.221 185.27.134.11:21 127.0.0.7:80
+	log.Fatal(http.ListenAndServe(":"+port, handler2))
 }
