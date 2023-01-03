@@ -67,4 +67,5 @@ func initialRouterr() {
 	auth.HandleFunc("/validate", controllers.Validate).Methods("GET")
 	//r.Use(middleware.CommonMiddleware)192.168.109.189  192.168.29.221 185.27.134.11:21 127.0.0.7:80
 	log.Fatal(http.ListenAndServe(":"+port, handler2))
+	//log.Fatal(http.ListenAndServe("localhost:8080", handler2))
 }

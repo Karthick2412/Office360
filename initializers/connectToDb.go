@@ -12,7 +12,7 @@ var err error
 // var DSN = "sql6584688:8NtvpkcXWg@tcp(sql6.freesqldatabase.com:3306)/sql6584688?charset=utf8mb4&parseTime=True&loc=Local"
 //var DSN = "ltbwqODtnJ:XS3bkyXm0Z@tcp(remotemysql.com:3306)/ltbwqODtnJ?charset=utf8mb4&parseTime=True&loc=Local"
 
-var DSN = "root:root@123@tcp(localhost:3306)/report?charset=utf8mb4&parseTime=True&loc=Local"
+var DSN = "freedb_Office360:H!d6jZ*$e8kvYm@@tcp(sql.freedb.tech)/freedb_report?charset=utf8mb4&parseTime=True&loc=Local"
 
 func ConnectToDb() *gorm.DB {
 
