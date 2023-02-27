@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"taskupdate/initializers"
 	"taskupdate/models"
@@ -303,6 +304,11 @@ func Report(w http.ResponseWriter, r *http.Request) {
 	// Send the email to Bob, Cora and Dan.
 	if err := d.DialAndSend(m); err != nil {
 		panic(err)
+	}
+
+	e := os.Remove(taskJson2.Name + "_TasksReport.xlsx")
+	if e != nil {
+		log.Fatal(e)
 	}
 	json.NewEncoder(w).Encode(dValA)
 
